@@ -31,11 +31,12 @@ Authors: [Nikolaos Kamarinakis](mailto:nikolaskam@gmail.com) & [David Schütz](m
 You can download KickThemOut by using the setup.sh, or cloning the repo:
 
 **IF USING THE SETEUP.SH (Debian Systems ONLY) Follow the instructions below:**
-
+```
 1. create the setup.sh shell script by copying its contents from this repo.
 2. ❯❯❯ chmod +x setup.sh
 3. ❯❯❯ ./setup.sh
 4. The script will clone the repo, install needed dependcies, and run kickthemout for the first time!
+```
 
 **MANUAL INSTALL INSTRUCTIONS BELOW:**
 
