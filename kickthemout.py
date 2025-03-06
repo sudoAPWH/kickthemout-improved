@@ -193,7 +193,7 @@ def getGatewayIP():
         # request gateway IP address (after failed detection by scapy)
         stopAnimation = True
         print("\n{}ERROR: Gateway IP could not be obtained. Please enter IP manually.{}\n".format(RED, END))
-        header = ('{}kickthemout{}> {}Enter Gateway IP {}(e.g. 192.168.1.1): '.format(BLUE, WHITE, RED, END))
+        header = ('{}kickthemout{}> {}Enter Gateway IP {}(e.g. 192.168.0.1): '.format(BLUE, WHITE, RED, END))
         return (input(header))
 
 
@@ -210,22 +210,29 @@ def retrieveMACAddress(host):
         return False
 
 
+import requests
 
-# resolve mac address of each vendor
 def resolveMac(mac):
     try:
-        # send request to macvendors.co
-        url = "http://macvendors.co/api/vendorname/"
-        request = Request(url + mac, headers={'User-Agent': "API Browser"})
-        response = urlopen(request)
-        vendor = response.read()
-        vendor = vendor.decode("utf-8")
-        vendor = vendor[:25]
-        return vendor
-    except KeyboardInterrupt:
-        shutdown()
-    except:
-        return "N/A"
+        mac = mac.upper().replace(":", "-")
+        url = f"https://api.maclookup.app/v2/macs/{mac}"
+        response = requests.get(url)
+
+        # Check for a successful response
+        if response.status_code == 200:
+            data = response.json()
+
+            # Extract the manufacturer name (company)
+            manufacturer = data.get("company", "")
+
+            # Return only the manufacturer name (company), or an empty string if not found
+            return manufacturer if manufacturer else "Unknown"
+        else:
+            print(f"Error: Received status code {response.status_code}")
+            return "Unknown"
+    except Exception as e:
+        print(f"Error: {e}")
+        return "Unknown"
 
 
 
@@ -398,7 +405,7 @@ def kickoneoff():
         try:
             hostname = utils.socket.gethostbyaddr(onlineIPs[i])[0]
         except:
-            hostname = "N/A"
+            hostname = "Active"
         vendor = resolveMac(mac)
         print("  [{}{}{}] {}{}{}\t{}{}\t{} ({}{}{}){}".format(YELLOW, str(i), WHITE, RED, str(onlineIPs[i]), BLUE, mac, GREEN, vendor, YELLOW, hostname, GREEN, END))
 
@@ -481,7 +488,7 @@ def kicksomeoff():
         try:
             hostname = utils.socket.gethostbyaddr(onlineIPs[i])[0]
         except:
-            hostname = "N/A"
+            hostname = "Active"
         vendor = resolveMac(mac)
         print("  [{}{}{}] {}{}{}\t{}{}\t{} ({}{}{}){}".format(YELLOW, str(i), WHITE, RED, str(onlineIPs[i]), BLUE, mac, GREEN, vendor, YELLOW, hostname, GREEN, END))
 
@@ -575,7 +582,7 @@ def kickalloff():
         try:
             hostname = utils.socket.gethostbyaddr(onlineIPs[i])[0]
         except:
-            hostname = "N/A"
+            hostname = "Active"
         vendor = resolveMac(mac)
         print("  [{}{}{}] {}{}{}\t{}{}\t{} ({}{}{}){}".format(YELLOW, str(i), WHITE, RED, str(onlineIPs[i]), BLUE, mac, GREEN, vendor, YELLOW, hostname, GREEN, END))
     
@@ -700,7 +707,7 @@ def main():
             try:
                 hostname = utils.socket.gethostbyaddr(onlineIPs[i])[0]
             except:
-                hostname = "N/A"
+                hostname = "Active"
             vendor = resolveMac(mac)
             print("  [{}{}{}] {}{}{}\t{}{}\t{} ({}{}{}){}".format(YELLOW, str(i), WHITE, RED, str(onlineIPs[i]), BLUE, mac, GREEN, vendor, YELLOW, hostname, GREEN, END))
 
