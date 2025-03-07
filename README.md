@@ -29,7 +29,7 @@ Authors: [Nikolaos Kamarinakis](mailto:nikolaskam@gmail.com) & [David Schütz](m
 ## Debian Installation
 
 **NOTE**
-After Debian is implemented PEP 668, you can no longer use **pip** to install system-wide python dependencies. For Debian based distros you will need to install the dependencies through APT with a command like this: ``` sudo apt install python3-packagename ``` 
+After most linux distros/Mac implemented PEP 668, you can no longer use **pip** to install system-wide python dependencies without a virtual environment. For most distros you will need to install the dependencies through your package manager using a command like this: ``` sudo apt install python3-packagename ``` 
 
 You can download kickthemout by using the setup.sh, or cloning the repo:
 
@@ -42,7 +42,8 @@ You can download kickthemout by using the setup.sh, or cloning the repo:
 4. The script will clone the repo, install needed dependencies, and run kickthemout for the first time!
 
 
-** DEBIAN MANUAL INSTALL INSTRUCTIONS BELOW:**
+**DEBIAN MANUAL INSTALL INSTRUCTIONS BELOW:**
+
 
 ```
 ~ ❯❯❯ sudo apt-get update && sudo apt-get install nmap
@@ -59,7 +60,7 @@ You can download kickthemout by using the setup.sh, or cloning the repo:
 
 ## MacOS Installation
 
-If you would like to install KickThemOut on a Mac, please run the following:
+If you would like to install KickThemOut on a Mac, please run the following: **NOTE: You will need a virtual environment on mac**
 
 ```
 ~ ❯❯❯ brew install libdnet nmap
@@ -68,7 +69,7 @@ If you would like to install KickThemOut on a Mac, please run the following:
 
 ~ ❯❯❯ cd kickthemout/
 
-~/kickthemout ❯❯❯ sudo -H pip3 install -r requirements.txt **NOTE: You will need a virtual environment for these to install**
+~/kickthemout ❯❯❯ sudo -H pip3 install -r requirements.txt 
 
 ~/kickthemout ❯❯❯ sudo python3 kickthemout.py
 
@@ -83,7 +84,7 @@ Also, **keep in mind** that you might be asked to run some extra commands after 
 
 You can download KickThemOut on an Arch based system by executing the following: 
 
-**NOTE: You will need a virtual environment to use pip, unless you install the python dependencies through the AUR**
+**NOTE: You will need a virtual environment to use pip, unless you install the python dependencies through the AUR as PACMAN does not currently have the needed dependencies**
 
 ```
 ~ ❯❯❯ git clone https://github.com/k4m4/kickthemout.git
