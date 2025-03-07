@@ -123,14 +123,6 @@ To view all available options run:
 
 <br/>
 
-# Demo
-
-Here's a short demo:
-
-[![Asciinema Demo](https://nikolaskama.me/content/images/2017/01/kickthemout_asciinema.png)](https://asciinema.org/a/98200?autoplay=1&loop=1)
-
-(For more demos click [here](https://asciinema.org/~k4m4))
-
 
 <br/>
 
