@@ -1,5 +1,3 @@
-![KickThemOut Logo](http://nikolaskama.me/content/images/2017/02/kickthemout_small.png)
-
 # KickThemOut
 
 > [KickThemOut](https://nikolaskama.me/kickthemoutproject) - **Kick Devices Off Your Network**
@@ -20,7 +18,6 @@ Authors: [Nikolaos Kamarinakis](mailto:nikolaskam@gmail.com) & [David Schütz](m
 
 ---
 
-<p align="center">✨Read my latest post: <a href="https://nikolaskama.me/kickthemout-v2-0/"><i>KickThemout v2.0! 🎉</i></a></p>
     
 -------------
 
