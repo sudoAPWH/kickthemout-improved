@@ -405,7 +405,7 @@ def kickoneoff():
         try:
             hostname = utils.socket.gethostbyaddr(onlineIPs[i])[0]
         except:
-            hostname = "Active"
+            hostname = "N/A"
         vendor = resolveMac(mac)
         print("  [{}{}{}] {}{}{}\t{}{}\t{} ({}{}{}){}".format(YELLOW, str(i), WHITE, RED, str(onlineIPs[i]), BLUE, mac, GREEN, vendor, YELLOW, hostname, GREEN, END))
 
